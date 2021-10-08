@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        #billButton{
+        background-color:plum;
+        border: 2px solid plum;
+        }
+    </style> -->
+</head>
+
+<body>
+    <table border="2">
+        <tr>
+            <td>Biryani</td>
+            <td><input class="dish" type="checkbox"></td>
+            <td>200</td>
+            <td><input type="number"></td>
+        </tr>
+        <tr>
+            <td>Qorma</td>
+            <td><input class="dish" type="checkbox"></td>
+            <td>300</td>
+            <td><input type="number"></td>
+        </tr>
+        <tr>
+            <td>Fish</td>
+            <td><input class="dish" type="checkbox"></td>
+            <td>1000</td>
+            <td><input type="number"></td>
+        </tr>
+        <tr>
+            <td>Naan</td>
+            <td><input id="naan" class="dish" type="checkbox"></td>
+            <td>20</td>
+            <td><input id="naanBox" type="number"></td>
+        </tr>
+        <tr>
+            <td>
+                <button id="billButton">Total Bill</button>
+            </td>
+            <td id="billBox"></td>
+        </tr>
+        <tr>
+            <td>Discount</td>
+            <td id='discountBox'></td>
+            <td>netBill</td>
+            <td id="netBill"></td>
+        </tr>
+    </table>
+
+    <script>
+        billButton.onclick = function () {
+            let dishes = document.querySelectorAll('.dish');
+
+            let totalBill = 0;
+            let totalNaan = 0;
+            naanBox.value = 0;
+
+            dishes.forEach((dish) => {
+                if (dish.checked) {
+                    dish.parentNode.parentNode.style.color = 'red';
+
+                    let targetDish = dish.parentNode.previousElementSibling.innerText;
+
+                    let dishPrice = dish.parentNode.nextElementSibling.innerText;
+                    let dishQuantity = dish.parentNode.nextElementSibling.nextElementSibling.children[0].value;
+
+                    if (targetDish != "Biryani") {
+                        naan.checked = true;
+                        totalNaan += dishQuantity * 2;
+                    }
+
+                    totalBill += + dishPrice * dishQuantity;
+
+                    console.log(dish);
+                }
+            });
+            naanBox.value = totalNaan;
+            billBox.innerText = totalBill;
+
+            discountBox.innerText = (totalBill * 10) / 100;
+            netBill.innerText = totalBill - (totalBill * 10) / 100;
+
+        }
+    </script>
+</body>
+
+</html>
