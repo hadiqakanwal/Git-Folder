@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div_Box {
+            border: 5px solid red;
+            width: 50%;
+            height: 600px;
+        }
+
+        #baloon {
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="div_Box">
+        <img id="baloon" src="baloon.jpg" alt="">
+    </div>
+
+    <script>
+
+        let moving = 0;
+        let movingLeft = true;
+
+        let movingUp = 0;
+        let movingDown = true;
+
+        setInterval(()=>{
+            if(movingLeft){
+                moveLeft();
+            }else{
+                moveRight()
+            }
+
+            if(movingDown){
+                moveDown();
+            }else{
+                moveUp();
+            }
+        },10);
+
+        function moveLeft(){
+            if((moving +baloon.offsetWidth) < div_Box.offsetWidth){
+                moving +=Math.round(Math.random() * 6);
+            }else{
+                movingLeft= false;
+            }
+            baloon.style.left = moving + 'px';
+        }
+        function moveRight(){
+            if(moving > 1){
+                moving -=Math.round(Math.random()* 5);
+            }else{
+                movingLeft = true;
+            }
+            baloon.style.left = moving +'px';
+        }
+
+        function moveUp(){
+            if(movingUp > 0){
+                movingUp -=Math.round(Math.random()* 7);
+            }else{
+                movingDown= true;
+            }
+
+
+
+            baloon.style.top = movingUp + 'px';
+        }
+        function moveDown(){
+            if((movingUp + baloon.offsetHeight) < div_Box.offsetHeight){
+                movingUp +=Math.round(Math.random()* 8);
+            }else{
+                movingDown = false;
+            }
+            baloon.style.top = movingUp +'px';
+        }
+
+    </script>
+</body>
+</html>
