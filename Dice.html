@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dicecolor {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            margin-top: 10px;
+            border-radius: 20px;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="diceContainer">
+        <table>
+            <tr>
+                <td id="a1"></td>
+                <td id="a2"></td>
+                <td id="a3"></td>
+            </tr>
+            <tr>
+                <td id="a4"></td>
+                <td id="a5"></td>
+                <td id="a6"></td>
+            </tr>
+            <tr>
+                <td id="a7"></td>
+                <td id="a8"></td>
+                <td id="a9"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let diceValue = 1 + Math.floor(Math.random() * 6);
+        //    for(i=1; i<=diceValue ; i++){
+
+        let dice = document.createElement('div');
+        dice.classList.add('dicecolor');
+        //    diceContainer.appendChild(dice);
+        //   }
+        switch (diceValue) {
+            case 1:
+                a5.appendChild(dice.cloneNode());
+                break;
+
+            case 2:
+                a4.appendChild(dice.cloneNode());
+                a6.appendChild(dice.cloneNode());
+                break;
+
+            case 3:
+                a1.appendChild(dice.cloneNode());
+                a5.appendChild(dice.cloneNode());
+                a9.appendChild(dice.cloneNode());
+                break;
+
+            case 4:
+                a1.appendChild(dice.cloneNode());
+                a3.appendChild(dice.cloneNode());
+                a7.appendChild(dice.cloneNode());
+                a9.appendChild(dice.cloneNode());
+                break;
+
+            case 5:
+                a1.appendChild(dice.cloneNode());
+                a3.appendChild(dice.cloneNode());
+                a5.appendChild(dice.cloneNode());
+                a7.appendChild(dice.cloneNode());
+                a9.appendChild(dice.cloneNode());
+                break;
+
+            case 6:
+                a1.appendChild(dice.cloneNode());
+                a3.appendChild(dice.cloneNode());
+                a4.appendChild(dice.cloneNode());
+                a6.appendChild(dice.cloneNode());
+                a7.appendChild(dice.cloneNode());
+                a9.appendChild(dice.cloneNode());
+                break;
+        }
+
+    </script>
+</body>
+
+</html>
